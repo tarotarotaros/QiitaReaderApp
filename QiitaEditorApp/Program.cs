@@ -1,3 +1,6 @@
+using QiitaEditorApp.Presenters;
+using QiitaEditorApp.View;
+
 namespace QiitaEditorApp
 {
     internal static class Program
@@ -11,7 +14,11 @@ namespace QiitaEditorApp
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            
+            var v = new StartView();
+            var p = new StartPresenter(v);
+
+            Application.Run(v);
         }
     }
 }
