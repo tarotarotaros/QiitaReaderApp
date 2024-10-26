@@ -1,10 +1,5 @@
 ﻿using QiitaEditorApp.Services;
 using QiitaEditorApp.View;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QiitaEditorApp.Presenters
 {
@@ -30,10 +25,7 @@ namespace QiitaEditorApp.Presenters
                 _settingFileService.WriteApiToken(_startView.ApiToken);
             }
 
-            _startView.CloseView();
-
-
-
+            _startView.SwitchEditorView();
         }
     }
 }

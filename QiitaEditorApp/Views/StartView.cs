@@ -1,14 +1,4 @@
 ﻿using MaterialSkin;
-using MaterialSkin.Controls;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QiitaEditorApp.View
 {
@@ -16,7 +6,7 @@ namespace QiitaEditorApp.View
     public interface IStartView
     {
         event EventHandler StartClicked;
-        void CloseView();
+        void SwitchEditorView();
 
         string UserName { get; set; }
         string ApiToken { get; set; }
@@ -25,12 +15,13 @@ namespace QiitaEditorApp.View
 
     public partial class StartView : Form, IStartView
     {
+        private SwitchViewApplicationContext context;
 
         private readonly MaterialSkinManager _materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
-        public StartView()
+        public StartView(SwitchViewApplicationContext applicationContext)
         {
             InitializeComponent();
-
+            this.context = applicationContext;
 
             _materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
             _materialSkinManager.EnforceBackcolorOnAllComponents = true;
@@ -51,9 +42,9 @@ namespace QiitaEditorApp.View
 
         public event EventHandler StartClicked;
 
-        public void CloseView()
+        public void SwitchEditorView()
         {
-            this.Close();
+            this.context.SwitchForm(ViewType.Editor);
         }
 
         private void startButton_Click(object sender, EventArgs e)
