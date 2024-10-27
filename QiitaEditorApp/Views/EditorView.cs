@@ -16,12 +16,15 @@ namespace QiitaEditorApp.Views
 
     public interface IEditorView
     {
-
+        public void AddCard(string title, DateTime createDate, List<string> tags, string url);
+        public void ClearCards();
     }
 
     public partial class EditorView : MaterialForm, IEditorView
     {
         private readonly MaterialSkinManager _materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
+
+        private List<string> _cardKeys = new List<string>();
 
         public EditorView(SwitchViewApplicationContext applicationContext)
         {
@@ -37,6 +40,38 @@ namespace QiitaEditorApp.Views
                 MaterialSkin.Primary.BlueGrey500,
                 MaterialSkin.Accent.DeepOrange700,
                 MaterialSkin.TextShade.WHITE);
+        }
+
+        public void AddCard(string title, DateTime createDate, List<string> tags, string url)
+        {
+            var card = new ArticleControl();
+            card.Title = title;
+            card.CreateDate = createDate;
+            card.Tags = new System.Collections.ObjectModel.Collection<string>(tags);
+            card.Url = url;
+
+            card.Name = "XXXX" + _cardKeys.Count;
+
+            _cardKeys.Add(card.Name);
+
+            card.Location = new Point(10, 10 + (_cardKeys.Count - 1) * (150+20));
+
+            this.cardListPanel.Controls.Add(card);
+        }
+
+        public void ClearCards()
+        {
+            _cardKeys.ForEach(key =>
+            {
+                var card = this.cardListPanel.Controls.Find(key, true).FirstOrDefault();
+                if (card != null)
+                {
+                    this.Controls.Remove(card);
+                    card.Dispose();
+                }
+            });
+
+            _cardKeys.Clear();
         }
     }
     

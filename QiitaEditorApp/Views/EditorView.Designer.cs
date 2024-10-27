@@ -32,11 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditorView));
             ArtcileTabControl = new MaterialSkin.Controls.MaterialTabControl();
             ARTICLE = new TabPage();
+            cardListPanel = new Panel();
             DRAFT = new TabPage();
             WRITE = new TabPage();
             EditorTabImageList = new ImageList(components);
             panel1 = new Panel();
             ArtcileTabControl.SuspendLayout();
+            ARTICLE.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -57,14 +59,26 @@
             // 
             // ARTICLE
             // 
+            ARTICLE.Controls.Add(cardListPanel);
             ARTICLE.ImageKey = "記事アイコン1.png";
             ARTICLE.Location = new Point(4, 39);
             ARTICLE.Name = "ARTICLE";
-            ARTICLE.Padding = new Padding(3);
+            ARTICLE.Padding = new Padding(50, 50, 100, 100);
             ARTICLE.Size = new Size(1033, 591);
             ARTICLE.TabIndex = 0;
             ARTICLE.Text = "ARTICLE";
             ARTICLE.UseVisualStyleBackColor = true;
+            // 
+            // cardListPanel
+            // 
+            cardListPanel.AutoScroll = true;
+            cardListPanel.BackColor = Color.White;
+            cardListPanel.Dock = DockStyle.Fill;
+            cardListPanel.Location = new Point(50, 50);
+            cardListPanel.Margin = new Padding(0);
+            cardListPanel.Name = "cardListPanel";
+            cardListPanel.Size = new Size(883, 441);
+            cardListPanel.TabIndex = 1;
             // 
             // DRAFT
             // 
@@ -116,6 +130,7 @@
             Name = "EditorView";
             StartPosition = FormStartPosition.CenterParent;
             ArtcileTabControl.ResumeLayout(false);
+            ARTICLE.ResumeLayout(false);
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -127,5 +142,7 @@
         private Panel panel1;
         private TabPage WRITE;
         private ImageList EditorTabImageList;
+        private ArticleControl articleControl1;
+        private Panel cardListPanel;
     }
 }
