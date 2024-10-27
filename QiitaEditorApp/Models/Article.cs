@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QiitaEditorApp.Models
 {
@@ -14,5 +11,8 @@ namespace QiitaEditorApp.Models
         public List<string> Tags { get; set; }
         public string Tag { get; set; }
         public string Url { get; set; }
+        public int ViewCount { get; set; }
+        public int FavoriteCount { get; set; }
+        public int CommentCount { get; set; }
     }
 }

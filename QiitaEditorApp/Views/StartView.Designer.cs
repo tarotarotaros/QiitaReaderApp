@@ -1,4 +1,7 @@
-﻿namespace QiitaEditorApp.View
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace QiitaEditorApp.View
 {
     partial class StartView
     {

@@ -1,4 +1,7 @@
-﻿namespace QiitaEditorApp.Views
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace QiitaEditorApp.Views
 {
     partial class EditorView
     {
@@ -34,7 +37,6 @@
             ARTICLE = new TabPage();
             cardListPanel = new Panel();
             DRAFT = new TabPage();
-            WRITE = new TabPage();
             EditorTabImageList = new ImageList(components);
             panel1 = new Panel();
             ArtcileTabControl.SuspendLayout();
@@ -46,7 +48,6 @@
             // 
             ArtcileTabControl.Controls.Add(ARTICLE);
             ArtcileTabControl.Controls.Add(DRAFT);
-            ArtcileTabControl.Controls.Add(WRITE);
             ArtcileTabControl.Depth = 0;
             ArtcileTabControl.ImageList = EditorTabImageList;
             ArtcileTabControl.Location = new Point(3, 0);
@@ -91,16 +92,6 @@
             DRAFT.Text = "DRAFT";
             DRAFT.UseVisualStyleBackColor = true;
             // 
-            // WRITE
-            // 
-            WRITE.ImageKey = "鉛筆アイコン　4.png";
-            WRITE.Location = new Point(4, 39);
-            WRITE.Name = "WRITE";
-            WRITE.Size = new Size(1033, 591);
-            WRITE.TabIndex = 2;
-            WRITE.Text = "WRITE";
-            WRITE.UseVisualStyleBackColor = true;
-            // 
             // EditorTabImageList
             // 
             EditorTabImageList.ColorDepth = ColorDepth.Depth32Bit;
@@ -140,9 +131,7 @@
         private TabPage ARTICLE;
         private TabPage DRAFT;
         private Panel panel1;
-        private TabPage WRITE;
         private ImageList EditorTabImageList;
-        private ArticleControl articleControl1;
         private Panel cardListPanel;
     }
 }

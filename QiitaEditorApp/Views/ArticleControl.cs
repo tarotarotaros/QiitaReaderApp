@@ -1,23 +1,29 @@
 ﻿using QiitaEditorApp.Views.Controls;
+using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace QiitaEditorApp.Views
 {
     public partial class ArticleControl : UserControl
     {
         private List<string> _labelNameList = new List<string>();
+        private Collection<string> _tags = new Collection<string>();
 
         [Browsable(true)]
         [Category("Appearance")]
         [Description("タイトル")]
         public string Title
         {
-            get { return this.titleLabel.Text; }
+            get { return this.TitleLabel.Text; }
             set
             {
-                this.titleLabel.Text = value;
+                this.TitleLabel.Text = value;
                 this.Invalidate();
             }
         }
@@ -28,20 +34,19 @@ namespace QiitaEditorApp.Views
         public DateTime? CreateDate
         {
             get {
-                if (string.IsNullOrEmpty(this.dateLabel.Text)) return DateTime.MinValue;
-                return DateTime.Parse(this.dateLabel.Text); }
+                if (string.IsNullOrEmpty(this.DateLabel.Text)) return DateTime.MinValue;
+                return DateTime.Parse(this.DateLabel.Text); }
             set
             {
                 if (!value.HasValue)
                 {
-                    this.dateLabel.Text = string.Empty;
+                    this.DateLabel.Text = string.Empty;
                 }
-                this.dateLabel.Text = value.Value.ToString("yyyy/MM/dd");
+                this.DateLabel.Text = value.Value.ToString("yyyy/MM/dd");
                 this.Invalidate();
             }
         }
 
-        private Collection<string> _tags = new Collection<string>();
         [Browsable(true)]
         [Category("Appearance")]
         [Description("タグ")]
@@ -72,11 +77,53 @@ namespace QiitaEditorApp.Views
             }
         }
 
+        [Browsable(true)]
+        [Category("Appearance")]
+        [Description("閲覧者数")]
+        public int ViewCount
+        {
+            get { return int.Parse(this.AccessCountLabel.Text); }
+            set
+            {
+                this.AccessCountLabel.Text = value.ToString();
+                this.Invalidate();
+            }
+        }
+
+        [Browsable(true)]
+        [Category("Appearance")]
+        [Description("いいね数")]
+        public int FavoriteCount
+        {
+            get { return int.Parse(this.FavoriteCountLabel.Text); }
+            set
+            {
+                this.FavoriteCountLabel.Text = value.ToString();
+                this.Invalidate();
+            }
+        }
+
+        [Browsable(true)]
+        [Category("Appearance")]
+        [Description("コメント数")]
+        public int CommentCount
+        {
+            get { return int.Parse(this.CommentCountLabel.Text); }
+            set
+            {
+                this.CommentCountLabel.Text = value.ToString();
+                this.Invalidate();
+            }
+        }
+
         public ArticleControl()
         {
             InitializeComponent();
 
-            this.dateLabel.Text = DateTime.Now.ToString("yyyy/MM/dd");
+            this.DateLabel.Text = DateTime.Now.ToString("yyyy/MM/dd");
+            this.ViewCount = 0;
+            this.FavoriteCount = 0;
+            this.CommentCount = 0;
         }
 
         private void AddTag(string tag)
@@ -90,14 +137,14 @@ namespace QiitaEditorApp.Views
             label.BorderRadius = 14;
             label.BorderWidth = 2f;
 
-            this.materialCard1.Controls.Add(label);
+            this.ArticleDetailCard.Controls.Add(label);
         }
 
         private void ClearTags()
         {
             _labelNameList.ForEach(name =>
             {
-                var label = this.materialCard1.Controls.Find(name, true).FirstOrDefault();
+                var label = this.ArticleDetailCard.Controls.Find(name, true).FirstOrDefault();
                 if (label != null)
                 {
                     this.Controls.Remove(label);

@@ -2,26 +2,26 @@
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static QiitaEditorApp.Program;
 
 namespace QiitaEditorApp.Views
 {
 
     public interface IEditorView
     {
-        public void AddCard(string title, DateTime createDate, List<string> tags, string url);
-        public void ClearCards();
+        void AddCard(string title, DateTime createDate, List<string> tags, string url, int viewCount, int favoriteCount, int commentCount);
+        void ClearCards();
     }
 
     public partial class EditorView : MaterialForm, IEditorView
     {
+        private const int CARD_BETWEEN_SPACE = 20;
+        private const int CARD_HEIGHT = 130;
+        private const int CARD_LOCATION_X = 10;
+        private const int CARD_FIRST_LOCATION_Y = 10;
+        private const string CARD_NAME_WITHOUT_NUMBER = "ArticleCard";
+
         private readonly MaterialSkinManager _materialSkinManager = MaterialSkin.MaterialSkinManager.Instance;
 
         private List<string> _cardKeys = new List<string>();
@@ -42,20 +42,20 @@ namespace QiitaEditorApp.Views
                 MaterialSkin.TextShade.WHITE);
         }
 
-        public void AddCard(string title, DateTime createDate, List<string> tags, string url)
+        public void AddCard(string title, DateTime createDate, List<string> tags, string url, int viewCount, int favoriteCount, int commentCount)
         {
             var card = new ArticleControl();
+            card.Name = CARD_NAME_WITHOUT_NUMBER + (_cardKeys.Count + 1).ToString();
             card.Title = title;
             card.CreateDate = createDate;
             card.Tags = new System.Collections.ObjectModel.Collection<string>(tags);
             card.Url = url;
-
-            card.Name = "XXXX" + _cardKeys.Count;
+            card.ViewCount = viewCount;
+            card.FavoriteCount = favoriteCount;
+            card.CommentCount = commentCount;
+            card.Location = new Point(CARD_LOCATION_X, CARD_FIRST_LOCATION_Y + _cardKeys.Count * (CARD_HEIGHT + CARD_BETWEEN_SPACE));
 
             _cardKeys.Add(card.Name);
-
-            card.Location = new Point(10, 10 + (_cardKeys.Count - 1) * (150+20));
-
             this.cardListPanel.Controls.Add(card);
         }
 

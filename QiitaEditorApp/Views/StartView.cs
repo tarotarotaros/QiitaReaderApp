@@ -1,4 +1,6 @@
 ﻿using MaterialSkin;
+using System;
+using System.Windows.Forms;
 
 namespace QiitaEditorApp.View
 {

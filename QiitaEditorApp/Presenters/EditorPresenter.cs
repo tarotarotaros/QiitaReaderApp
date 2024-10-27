@@ -1,10 +1,6 @@
 ﻿using QiitaEditorApp.Services.Dummy;
 using QiitaEditorApp.Views;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QiitaEditorApp.Presenters
 {
@@ -20,7 +16,7 @@ namespace QiitaEditorApp.Presenters
             var articleList = service.GetList();
             articleList.Result.ToList().ForEach(article =>
             {
-                _editorView.AddCard(article.Title, article.Date, article.Tags, article.Url);
+                _editorView.AddCard(article.Title, article.Date, article.Tags, article.Url, article.ViewCount, article.FavoriteCount, article.CommentCount);
             });
         }
 

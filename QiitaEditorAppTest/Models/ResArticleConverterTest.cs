@@ -1,4 +1,5 @@
 ﻿using QiitaEditorApp.Models;
+using Xunit;
 
 namespace QiitaEditorAppTest.Models
 {
@@ -25,7 +26,7 @@ namespace QiitaEditorAppTest.Models
             var resArticleConverter = new ResArticleConverter();
             var result = resArticleConverter.Convert(jsonResponse);
 
-            Assert.Equal(1, result.Count);
+            Assert.Single(result);
             Assert.Equal("タイトル", result[0].Title);
             Assert.Equal("作成しました。", result[0].Content);
             Assert.Equal("2024/10/17 21:09:24", result[0].Date.ToString());
