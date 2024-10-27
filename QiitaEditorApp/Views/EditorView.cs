@@ -1,5 +1,6 @@
 ﻿using MaterialSkin;
 using MaterialSkin.Controls;
+using QiitaEditorApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -12,6 +13,7 @@ namespace QiitaEditorApp.Views
     {
         void AddCard(string title, DateTime createDate, List<string> tags, string url, int viewCount, int favoriteCount, int commentCount);
         void ClearCards();
+        void SetArticles(List<Article> articles);
     }
 
     public partial class EditorView : MaterialForm, IEditorView
@@ -57,6 +59,7 @@ namespace QiitaEditorApp.Views
 
             _cardKeys.Add(card.Name);
             this.cardListPanel.Controls.Add(card);
+
         }
 
         public void ClearCards()
@@ -72,6 +75,11 @@ namespace QiitaEditorApp.Views
             });
 
             _cardKeys.Clear();
+        }
+
+        public void SetArticles(List<Article> articles)
+        {
+            this.ArticleGraph.SetArticles(articles);
         }
     }
     

@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 
-namespace QiitaEditorApp
+namespace QiitaEditorAppTest.UI
 {
-    public static class Program
+    public static class TestProgram
     {
         /// <summary>
         ///  The main entry point for the application.
@@ -13,11 +13,11 @@ namespace QiitaEditorApp
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            //ApplicationConfiguration.Initialize();
+            // ApplicationConfiguration.Initialize();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SwitchViewApplicationContext());
+            Application.Run(new TestForm());
         }
 
     }

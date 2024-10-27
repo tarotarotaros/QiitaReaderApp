@@ -31,107 +31,125 @@ namespace QiitaEditorApp.Views
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditorView));
-            ArtcileTabControl = new MaterialSkin.Controls.MaterialTabControl();
-            ARTICLE = new TabPage();
-            cardListPanel = new Panel();
-            DRAFT = new TabPage();
-            EditorTabImageList = new ImageList(components);
-            panel1 = new Panel();
-            ArtcileTabControl.SuspendLayout();
-            ARTICLE.SuspendLayout();
-            panel1.SuspendLayout();
-            SuspendLayout();
+            this.ArtcileTabControl = new MaterialSkin.Controls.MaterialTabControl();
+            this.ARTICLE = new System.Windows.Forms.TabPage();
+            this.cardListPanel = new System.Windows.Forms.Panel();
+            this.GRAPH = new System.Windows.Forms.TabPage();
+            this.ArticleGraph = new QiitaEditorApp.Views.Controls.ArticleGraphControl();
+            this.EditorTabImageList = new System.Windows.Forms.ImageList(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.ArtcileTabControl.SuspendLayout();
+            this.ARTICLE.SuspendLayout();
+            this.GRAPH.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.SuspendLayout();
             // 
             // ArtcileTabControl
             // 
-            ArtcileTabControl.Controls.Add(ARTICLE);
-            ArtcileTabControl.Controls.Add(DRAFT);
-            ArtcileTabControl.Depth = 0;
-            ArtcileTabControl.ImageList = EditorTabImageList;
-            ArtcileTabControl.Location = new Point(3, 0);
-            ArtcileTabControl.MouseState = MaterialSkin.MouseState.HOVER;
-            ArtcileTabControl.Multiline = true;
-            ArtcileTabControl.Name = "ArtcileTabControl";
-            ArtcileTabControl.SelectedIndex = 0;
-            ArtcileTabControl.Size = new Size(1041, 634);
-            ArtcileTabControl.TabIndex = 6;
+            this.ArtcileTabControl.Controls.Add(this.ARTICLE);
+            this.ArtcileTabControl.Controls.Add(this.GRAPH);
+            this.ArtcileTabControl.Depth = 0;
+            this.ArtcileTabControl.ImageList = this.EditorTabImageList;
+            this.ArtcileTabControl.Location = new System.Drawing.Point(3, 0);
+            this.ArtcileTabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ArtcileTabControl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ArtcileTabControl.Multiline = true;
+            this.ArtcileTabControl.Name = "ArtcileTabControl";
+            this.ArtcileTabControl.SelectedIndex = 0;
+            this.ArtcileTabControl.Size = new System.Drawing.Size(892, 507);
+            this.ArtcileTabControl.TabIndex = 6;
             // 
             // ARTICLE
             // 
-            ARTICLE.Controls.Add(cardListPanel);
-            ARTICLE.ImageKey = "記事アイコン1.png";
-            ARTICLE.Location = new Point(4, 39);
-            ARTICLE.Name = "ARTICLE";
-            ARTICLE.Padding = new Padding(50, 50, 100, 100);
-            ARTICLE.Size = new Size(1033, 591);
-            ARTICLE.TabIndex = 0;
-            ARTICLE.Text = "ARTICLE";
-            ARTICLE.UseVisualStyleBackColor = true;
+            this.ARTICLE.Controls.Add(this.cardListPanel);
+            this.ARTICLE.ImageKey = "記事アイコン1.png";
+            this.ARTICLE.Location = new System.Drawing.Point(4, 39);
+            this.ARTICLE.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ARTICLE.Name = "ARTICLE";
+            this.ARTICLE.Padding = new System.Windows.Forms.Padding(43, 40, 86, 80);
+            this.ARTICLE.Size = new System.Drawing.Size(884, 464);
+            this.ARTICLE.TabIndex = 0;
+            this.ARTICLE.Text = "ARTICLE";
+            this.ARTICLE.UseVisualStyleBackColor = true;
             // 
             // cardListPanel
             // 
-            cardListPanel.AutoScroll = true;
-            cardListPanel.BackColor = Color.White;
-            cardListPanel.Dock = DockStyle.Fill;
-            cardListPanel.Location = new Point(50, 50);
-            cardListPanel.Margin = new Padding(0);
-            cardListPanel.Name = "cardListPanel";
-            cardListPanel.Size = new Size(883, 441);
-            cardListPanel.TabIndex = 1;
+            this.cardListPanel.AutoScroll = true;
+            this.cardListPanel.BackColor = System.Drawing.Color.White;
+            this.cardListPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cardListPanel.Location = new System.Drawing.Point(43, 40);
+            this.cardListPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.cardListPanel.Name = "cardListPanel";
+            this.cardListPanel.Size = new System.Drawing.Size(755, 344);
+            this.cardListPanel.TabIndex = 1;
             // 
-            // DRAFT
+            // GRAPH
             // 
-            DRAFT.ImageKey = "フロッピーディスクアイコン1.png";
-            DRAFT.Location = new Point(4, 39);
-            DRAFT.Name = "DRAFT";
-            DRAFT.Padding = new Padding(3);
-            DRAFT.Size = new Size(1033, 591);
-            DRAFT.TabIndex = 1;
-            DRAFT.Text = "DRAFT";
-            DRAFT.UseVisualStyleBackColor = true;
+            this.GRAPH.Controls.Add(this.ArticleGraph);
+            this.GRAPH.ImageKey = "折れ線と棒グラフのアイコン素材.png";
+            this.GRAPH.Location = new System.Drawing.Point(4, 39);
+            this.GRAPH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.GRAPH.Name = "GRAPH";
+            this.GRAPH.Padding = new System.Windows.Forms.Padding(20);
+            this.GRAPH.Size = new System.Drawing.Size(884, 464);
+            this.GRAPH.TabIndex = 1;
+            this.GRAPH.Text = "GRAPH";
+            this.GRAPH.UseVisualStyleBackColor = true;
+            // 
+            // ArticleGraph
+            // 
+            this.ArticleGraph.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ArticleGraph.Location = new System.Drawing.Point(20, 20);
+            this.ArticleGraph.Name = "ArticleGraph";
+            this.ArticleGraph.Size = new System.Drawing.Size(844, 424);
+            this.ArticleGraph.TabIndex = 0;
             // 
             // EditorTabImageList
             // 
-            EditorTabImageList.ColorDepth = ColorDepth.Depth32Bit;
-            EditorTabImageList.ImageStream = (ImageListStreamer)resources.GetObject("EditorTabImageList.ImageStream");
-            EditorTabImageList.TransparentColor = Color.Transparent;
-            EditorTabImageList.Images.SetKeyName(0, "記事アイコン1.png");
-            EditorTabImageList.Images.SetKeyName(1, "フロッピーディスクアイコン1.png");
-            EditorTabImageList.Images.SetKeyName(2, "鉛筆アイコン　4.png");
+            this.EditorTabImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("EditorTabImageList.ImageStream")));
+            this.EditorTabImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.EditorTabImageList.Images.SetKeyName(0, "折れ線と棒グラフのアイコン素材.png");
+            this.EditorTabImageList.Images.SetKeyName(1, "記事アイコン1.png");
             // 
             // panel1
             // 
-            panel1.Controls.Add(ArtcileTabControl);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 64);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1041, 567);
-            panel1.TabIndex = 7;
+            this.panel1.Controls.Add(this.ArtcileTabControl);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 51);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(891, 454);
+            this.panel1.TabIndex = 7;
             // 
             // EditorView
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1047, 634);
-            Controls.Add(panel1);
-            DrawerShowIconsWhenHidden = true;
-            DrawerTabControl = ArtcileTabControl;
-            Name = "EditorView";
-            StartPosition = FormStartPosition.CenterParent;
-            ArtcileTabControl.ResumeLayout(false);
-            ARTICLE.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(897, 507);
+            this.Controls.Add(this.panel1);
+            this.DrawerShowIconsWhenHidden = true;
+            this.DrawerTabControl = this.ArtcileTabControl;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "EditorView";
+            this.Padding = new System.Windows.Forms.Padding(3, 51, 3, 2);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.ArtcileTabControl.ResumeLayout(false);
+            this.ARTICLE.ResumeLayout(false);
+            this.GRAPH.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
         private MaterialSkin.Controls.MaterialTabControl ArtcileTabControl;
         private TabPage ARTICLE;
-        private TabPage DRAFT;
+        private TabPage GRAPH;
         private Panel panel1;
         private ImageList EditorTabImageList;
         private Panel cardListPanel;
+        private Controls.ArticleGraphControl ArticleGraph;
     }
 }

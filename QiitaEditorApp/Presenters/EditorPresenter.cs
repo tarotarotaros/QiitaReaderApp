@@ -18,6 +18,8 @@ namespace QiitaEditorApp.Presenters
             {
                 _editorView.AddCard(article.Title, article.Date, article.Tags, article.Url, article.ViewCount, article.FavoriteCount, article.CommentCount);
             });
+
+            _editorView.SetArticles(articleList.Result.ToList());
         }
 
 
