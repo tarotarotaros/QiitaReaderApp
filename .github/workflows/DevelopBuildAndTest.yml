@@ -1,0 +1,61 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ "develop"]
+  pull_request:
+    branches: [ "develop"]
+  workflow_dispatch:  # 手動実行用トリガーを追加
+
+jobs:
+  build:
+    runs-on: windows-latest  # Windows環境が必要
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.3.1
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x  # .NET SDKは後方互換性があるため、新しいバージョンで問題ありません
+        
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.2.0
+      
+    - name: Restore dependencies
+      run: |
+        nuget restore QiitaReaderApp.sln
+        dotnet restore
+        
+    - name: Build
+      run: |
+        msbuild /p:Configuration=Release /p:Platform="Any CPU" QiitaReaderApp.sln
+        
+    - name: Test
+      run: |
+        dotnet test QiitaReaderAppTest/QiitaReaderAppTest.csproj `
+          --configuration Release `
+          --no-build `
+          --verbosity normal `
+          --collect:"XPlat Code Coverage" `
+          --results-directory ./coverage
+          
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        directory: ./coverage
+        files: coverage.cobertura.xml
+        flags: unittests
+        fail_ci_if_error: true
+        
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: QiitaReader-Release
+        path: |
+          QiitaReaderApp/bin/Release/**/*.exe
+          QiitaReaderApp/bin/Release/**/*.dll
+        if-no-files-found: error
