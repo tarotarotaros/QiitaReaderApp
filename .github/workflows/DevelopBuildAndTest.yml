@@ -58,7 +58,7 @@ jobs:
       uses: codecov/codecov-action@v3
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        files: D:/a/QiitaReaderApp/QiitaReaderApp/coverage/**/*.cobertura.xml
+        files: D:/a/QiitaReaderApp/QiitaReaderApp/coverage/**/*.xml  # XMLファイルをワイルドカードで指定        
         flags: unittests
         fail_ci_if_error: true
         verbose: true
