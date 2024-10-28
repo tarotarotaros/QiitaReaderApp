@@ -53,12 +53,19 @@ jobs:
           /p:CollectCoverage=true `
           /p:CoverletOutput=./coverage/ `
           /p:CoverletOutputFormat=cobertura
+
+    - name: Get coverage file name
+      id: get-coverage-file
+      run: |
+        for /R D:\a\QiitaReaderApp\QiitaReaderApp\coverage\ %i in (*.cobertura.xml) do set COVERAGE_FILE=%i
+        echo "COVERAGE_FILE=%COVERAGE_FILE%" >> $GITHUB_ENV
+      shell: cmd
           
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v3
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        files: D:/a/QiitaReaderApp/QiitaReaderApp/coverage/**/*.xml  # XMLファイルをワイルドカードで指定        
+        files: ${{ env.COVERAGE_FILE }}
         flags: unittests
         fail_ci_if_error: true
         verbose: true
