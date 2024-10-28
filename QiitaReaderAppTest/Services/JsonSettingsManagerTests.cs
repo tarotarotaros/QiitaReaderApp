@@ -7,7 +7,7 @@ namespace QiitaReaderAppTest.Services
 {
     public class JsonSettingsManagerTests : IDisposable
     {
-        private readonly string _filePath = "setting.json";
+        private readonly string _filePath = "test_setting.json";
 
         public JsonSettingsManagerTests()
         {
