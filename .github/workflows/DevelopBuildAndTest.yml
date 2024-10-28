@@ -24,6 +24,14 @@ jobs:
         
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.2.0
+
+    # 日本語ロケールの設定
+    - name: Set Japanese locale
+      run: |
+        Set-Culture ja-JP
+        [System.Threading.Thread]::CurrentThread.CurrentCulture = 'ja-JP'
+        [System.Threading.Thread]::CurrentThread.CurrentUICulture = 'ja-JP'
+      shell: pwsh
       
     - name: Restore dependencies
       run: |
