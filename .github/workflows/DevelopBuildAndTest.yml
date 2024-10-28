@@ -57,9 +57,9 @@ jobs:
     - name: Get coverage file name
       id: get-coverage-file
       run: |
-        for /R D:\a\QiitaReaderApp\QiitaReaderApp\coverage\ %i in (*.cobertura.xml) do set COVERAGE_FILE=%i
-        echo "COVERAGE_FILE=%COVERAGE_FILE%" >> $GITHUB_ENV
-      shell: cmd
+        $file = Get-ChildItem -Path D:\a\QiitaReaderApp\QiitaReaderApp\coverage\ -Recurse -Filter *.cobertura.xml | Select-Object -First 1
+        echo "COVERAGE_FILE=$($file.FullName)" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+      shell: pwsh
           
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v3
