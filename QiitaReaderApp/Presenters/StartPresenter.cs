@@ -15,6 +15,14 @@ namespace QiitaReaderApp.Presenters
 
             _settingFileService = new SettingFileService();
 
+            _startView.UserName = _settingFileService.ReadUserName();
+            _startView.ApiToken = _settingFileService.ReadApiToken();
+
+            if (!string.IsNullOrEmpty(_startView.UserName))
+            {
+                _startView.IsSave = true;
+            }
+
             _startView.StartClicked += StartClicked;
         }
 

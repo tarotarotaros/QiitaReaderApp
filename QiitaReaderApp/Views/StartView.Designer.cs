@@ -31,130 +31,143 @@ namespace QiitaReaderApp.View
         /// </summary>
         private void InitializeComponent()
         {
-            StartButton = new MaterialSkin.Controls.MaterialButton();
-            UserNamelTextBox = new MaterialSkin.Controls.MaterialTextBox();
-            UserNameLabel = new MaterialSkin.Controls.MaterialLabel();
-            ApitokenLabel = new MaterialSkin.Controls.MaterialLabel();
-            ApitokenTextBox = new MaterialSkin.Controls.MaterialTextBox();
-            IsSaveCheckBox = new MaterialSkin.Controls.MaterialCheckbox();
-            SuspendLayout();
+            this.StartButton = new MaterialSkin.Controls.MaterialButton();
+            this.UserNamelTextBox = new MaterialSkin.Controls.MaterialTextBox();
+            this.UserNameLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.ApitokenLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.ApitokenTextBox = new MaterialSkin.Controls.MaterialTextBox();
+            this.IsSaveSwitch = new MaterialSkin.Controls.MaterialSwitch();
+            this.SpacePanel = new System.Windows.Forms.Panel();
+            this.SpacePanel.SuspendLayout();
+            this.SuspendLayout();
             // 
             // StartButton
             // 
-            StartButton.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            StartButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            StartButton.Depth = 0;
-            StartButton.HighEmphasis = true;
-            StartButton.Icon = null;
-            StartButton.Location = new Point(478, 157);
-            StartButton.Margin = new Padding(4, 6, 4, 6);
-            StartButton.MouseState = MaterialSkin.MouseState.HOVER;
-            StartButton.Name = "StartButton";
-            StartButton.NoAccentTextColor = Color.Empty;
-            StartButton.Size = new Size(67, 36);
-            StartButton.TabIndex = 0;
-            StartButton.Text = "Start";
-            StartButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            StartButton.UseAccentColor = false;
-            StartButton.UseVisualStyleBackColor = true;
-            StartButton.Click += startButton_Click;
+            this.StartButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.StartButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.StartButton.Depth = 0;
+            this.StartButton.HighEmphasis = true;
+            this.StartButton.Icon = null;
+            this.StartButton.Location = new System.Drawing.Point(466, 131);
+            this.StartButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.StartButton.MouseState = MaterialSkin.MouseState.HOVER;
+            this.StartButton.Name = "StartButton";
+            this.StartButton.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.StartButton.Size = new System.Drawing.Size(67, 36);
+            this.StartButton.TabIndex = 5;
+            this.StartButton.Text = "Start";
+            this.StartButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.StartButton.UseAccentColor = false;
+            this.StartButton.UseVisualStyleBackColor = true;
+            this.StartButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // UserNamelTextBox
             // 
-            UserNamelTextBox.AnimateReadOnly = false;
-            UserNamelTextBox.BorderStyle = BorderStyle.None;
-            UserNamelTextBox.Depth = 0;
-            UserNamelTextBox.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            UserNamelTextBox.LeadingIcon = null;
-            UserNamelTextBox.Location = new Point(116, 34);
-            UserNamelTextBox.MaxLength = 50;
-            UserNamelTextBox.MouseState = MaterialSkin.MouseState.OUT;
-            UserNamelTextBox.Multiline = false;
-            UserNamelTextBox.Name = "UserNamelTextBox";
-            UserNamelTextBox.Size = new Size(429, 50);
-            UserNamelTextBox.TabIndex = 2;
-            UserNamelTextBox.Text = "";
-            UserNamelTextBox.TrailingIcon = null;
+            this.UserNamelTextBox.AnimateReadOnly = false;
+            this.UserNamelTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.UserNamelTextBox.Depth = 0;
+            this.UserNamelTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.UserNamelTextBox.LeadingIcon = null;
+            this.UserNamelTextBox.Location = new System.Drawing.Point(104, 8);
+            this.UserNamelTextBox.MaxLength = 50;
+            this.UserNamelTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.UserNamelTextBox.Multiline = false;
+            this.UserNamelTextBox.Name = "UserNamelTextBox";
+            this.UserNamelTextBox.Size = new System.Drawing.Size(429, 50);
+            this.UserNamelTextBox.TabIndex = 2;
+            this.UserNamelTextBox.Text = "";
+            this.UserNamelTextBox.TrailingIcon = null;
             // 
             // UserNameLabel
             // 
-            UserNameLabel.AutoSize = true;
-            UserNameLabel.Depth = 0;
-            UserNameLabel.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            UserNameLabel.Location = new Point(28, 48);
-            UserNameLabel.MouseState = MaterialSkin.MouseState.HOVER;
-            UserNameLabel.Name = "UserNameLabel";
-            UserNameLabel.Size = new Size(82, 19);
-            UserNameLabel.TabIndex = 3;
-            UserNameLabel.Text = "UserName：";
+            this.UserNameLabel.BackColor = System.Drawing.SystemColors.Window;
+            this.UserNameLabel.Depth = 0;
+            this.UserNameLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.UserNameLabel.Location = new System.Drawing.Point(16, 22);
+            this.UserNameLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.UserNameLabel.Name = "UserNameLabel";
+            this.UserNameLabel.Size = new System.Drawing.Size(82, 19);
+            this.UserNameLabel.TabIndex = 1;
+            this.UserNameLabel.Text = "UserName：";
             // 
             // ApitokenLabel
             // 
-            ApitokenLabel.AutoSize = true;
-            ApitokenLabel.Depth = 0;
-            ApitokenLabel.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            ApitokenLabel.Location = new Point(30, 109);
-            ApitokenLabel.MouseState = MaterialSkin.MouseState.HOVER;
-            ApitokenLabel.Name = "ApitokenLabel";
-            ApitokenLabel.Size = new Size(80, 19);
-            ApitokenLabel.TabIndex = 5;
-            ApitokenLabel.Text = "API Token：";
+            this.ApitokenLabel.BackColor = System.Drawing.SystemColors.Window;
+            this.ApitokenLabel.Depth = 0;
+            this.ApitokenLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.ApitokenLabel.Location = new System.Drawing.Point(18, 85);
+            this.ApitokenLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ApitokenLabel.Name = "ApitokenLabel";
+            this.ApitokenLabel.Size = new System.Drawing.Size(80, 19);
+            this.ApitokenLabel.TabIndex = 3;
+            this.ApitokenLabel.Text = "API Token：";
             // 
             // ApitokenTextBox
             // 
-            ApitokenTextBox.AnimateReadOnly = false;
-            ApitokenTextBox.BorderStyle = BorderStyle.None;
-            ApitokenTextBox.Depth = 0;
-            ApitokenTextBox.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            ApitokenTextBox.LeadingIcon = null;
-            ApitokenTextBox.Location = new Point(116, 96);
-            ApitokenTextBox.MaxLength = 50;
-            ApitokenTextBox.MouseState = MaterialSkin.MouseState.OUT;
-            ApitokenTextBox.Multiline = false;
-            ApitokenTextBox.Name = "ApitokenTextBox";
-            ApitokenTextBox.Size = new Size(429, 50);
-            ApitokenTextBox.TabIndex = 4;
-            ApitokenTextBox.Text = "";
-            ApitokenTextBox.TrailingIcon = null;
+            this.ApitokenTextBox.AnimateReadOnly = false;
+            this.ApitokenTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ApitokenTextBox.Depth = 0;
+            this.ApitokenTextBox.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.ApitokenTextBox.LeadingIcon = null;
+            this.ApitokenTextBox.Location = new System.Drawing.Point(104, 70);
+            this.ApitokenTextBox.MaxLength = 50;
+            this.ApitokenTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.ApitokenTextBox.Multiline = false;
+            this.ApitokenTextBox.Name = "ApitokenTextBox";
+            this.ApitokenTextBox.Size = new System.Drawing.Size(429, 50);
+            this.ApitokenTextBox.TabIndex = 4;
+            this.ApitokenTextBox.Text = "";
+            this.ApitokenTextBox.TrailingIcon = null;
             // 
-            // IsSaveCheckBox
+            // IsSaveSwitch
             // 
-            IsSaveCheckBox.AutoSize = true;
-            IsSaveCheckBox.Depth = 0;
-            IsSaveCheckBox.Location = new Point(116, 156);
-            IsSaveCheckBox.Margin = new Padding(0);
-            IsSaveCheckBox.MouseLocation = new Point(-1, -1);
-            IsSaveCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
-            IsSaveCheckBox.Name = "IsSaveCheckBox";
-            IsSaveCheckBox.ReadOnly = false;
-            IsSaveCheckBox.Ripple = true;
-            IsSaveCheckBox.Size = new Size(70, 37);
-            IsSaveCheckBox.TabIndex = 6;
-            IsSaveCheckBox.Text = "Save";
-            IsSaveCheckBox.UseVisualStyleBackColor = true;
+            this.IsSaveSwitch.AutoSize = true;
+            this.IsSaveSwitch.BackColor = System.Drawing.SystemColors.Window;
+            this.IsSaveSwitch.Depth = 0;
+            this.IsSaveSwitch.Location = new System.Drawing.Point(104, 132);
+            this.IsSaveSwitch.Margin = new System.Windows.Forms.Padding(0);
+            this.IsSaveSwitch.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.IsSaveSwitch.MouseState = MaterialSkin.MouseState.HOVER;
+            this.IsSaveSwitch.Name = "IsSaveSwitch";
+            this.IsSaveSwitch.Ripple = true;
+            this.IsSaveSwitch.Size = new System.Drawing.Size(93, 37);
+            this.IsSaveSwitch.TabIndex = 5;
+            this.IsSaveSwitch.Text = "Save";
+            this.IsSaveSwitch.UseVisualStyleBackColor = false;
+            // 
+            // SpacePanel
+            // 
+            this.SpacePanel.BackColor = System.Drawing.Color.Transparent;
+            this.SpacePanel.Controls.Add(this.UserNameLabel);
+            this.SpacePanel.Controls.Add(this.IsSaveSwitch);
+            this.SpacePanel.Controls.Add(this.StartButton);
+            this.SpacePanel.Controls.Add(this.ApitokenLabel);
+            this.SpacePanel.Controls.Add(this.UserNamelTextBox);
+            this.SpacePanel.Controls.Add(this.ApitokenTextBox);
+            this.SpacePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SpacePanel.Location = new System.Drawing.Point(3, 68);
+            this.SpacePanel.Name = "SpacePanel";
+            this.SpacePanel.Size = new System.Drawing.Size(541, 152);
+            this.SpacePanel.TabIndex = 0;
             // 
             // StartView
             // 
-            AutoScaleDimensions = new SizeF(7F, 16F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.DimGray;
-            ClientSize = new Size(582, 232);
-            Controls.Add(IsSaveCheckBox);
-            Controls.Add(ApitokenLabel);
-            Controls.Add(ApitokenTextBox);
-            Controls.Add(UserNameLabel);
-            Controls.Add(UserNamelTextBox);
-            Controls.Add(StartButton);
-            Font = new Font("游ゴシック", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(4);
-            MaximizeBox = false;
-            Name = "StartView";
-            Padding = new Padding(3, 68, 3, 3);
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "LOGIN";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(547, 223);
+            this.Controls.Add(this.SpacePanel);
+            this.Font = new System.Drawing.Font("游ゴシック", 9F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.Name = "StartView";
+            this.Padding = new System.Windows.Forms.Padding(3, 68, 3, 3);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.SpacePanel.ResumeLayout(false);
+            this.SpacePanel.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -164,6 +177,7 @@ namespace QiitaReaderApp.View
         private MaterialSkin.Controls.MaterialLabel UserNameLabel;
         private MaterialSkin.Controls.MaterialLabel ApitokenLabel;
         private MaterialSkin.Controls.MaterialTextBox ApitokenTextBox;
-        private MaterialSkin.Controls.MaterialCheckbox IsSaveCheckBox;
+        private MaterialSkin.Controls.MaterialSwitch IsSaveSwitch;
+        private Panel SpacePanel;
     }
 }
